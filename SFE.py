@@ -31,7 +31,7 @@ class Encode(nn.Module):
     def forward(self, input):
         Fd = self.EdgeEnhance(input)
         block1 = self.fc1(input)
-        block2 = torch.cat((self.MS1(block1), self.MS3(block1), self.MS7(block1), self.MS7(block1)), dim=1)
+        block2 = torch.cat((self.MS1(block1), self.MS3(block1), self.MS5(block1), self.MS7(block1)), dim=1)
         Fm = self.fc11(block2)
         block3 = self.fc2(Fm)
         Fs = self.fc3(torch.cat((block1, block3, Fd), dim=1))
